@@ -2,13 +2,13 @@
 
 namespace App\Filter\Modifier;
 
-use App\DTO\PromotionEnquiryIterface;
+use App\DTO\PriceEnquiryInterface;
 use App\Entity\Promotion;
 
 class DateRangeMultiplier implements PriceModifierInterface
 {
 
-    public function modify(int $price, int $quantity, Promotion $promotion, PromotionEnquiryIterface $enquiry): int
+    public function modify(int $price, int $quantity, Promotion $promotion, PriceEnquiryInterface $enquiry): int
     {
         $requestDate = date_create($enquiry->getRequestDate());
         $from = date_create($promotion->getCriteria()['from']);

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Cache\PromotionsCache;
 use App\DTO\LowestPriceEnquiry;
 use App\Entity\Promotion;
 use App\Filter\PromotionFilterInterface;
@@ -14,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 class ProductsController extends AbstractController
 {
@@ -29,6 +32,7 @@ class ProductsController extends AbstractController
         int $id,
         DTOSerializer $serializer,
         PromotionFilterInterface $promotionFilter,
+        PromotionsCache $cache
     ): Response {
         if ($request->headers->has('force_fail')) {
 
@@ -48,11 +52,8 @@ class ProductsController extends AbstractController
 
         $lowestPriceEnquiry->setProduct($product);
 
-        $promotionsRepo = $this->manager->getRepository(Promotion::class);
-        $promotions     = $promotionsRepo->findValidForProduct(
-            $product,
-            date_create_immutable($lowestPriceEnquiry->getRequestDate())
-        );
+        $requestDate = date_create_immutable($lowestPriceEnquiry->getRequestDate());
+        $promotions  = $cache->findValidForProduct($product, $requestDate);
 
         $modifiedEnquiry = $promotionFilter->apply(
             $lowestPriceEnquiry,

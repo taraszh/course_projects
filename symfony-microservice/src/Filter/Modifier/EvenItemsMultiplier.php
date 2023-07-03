@@ -2,13 +2,13 @@
 
 namespace App\Filter\Modifier;
 
-use App\DTO\PromotionEnquiryIterface;
+use App\DTO\PriceEnquiryInterface;
 use App\Entity\Promotion;
 
 class EvenItemsMultiplier implements PriceModifierInterface
 {
 
-    public function modify(int $price, int $quantity, Promotion $promotion, PromotionEnquiryIterface $enquiry): int
+    public function modify(int $price, int $quantity, Promotion $promotion, PriceEnquiryInterface $enquiry): int
     {
         if ($quantity < 2) {
 
