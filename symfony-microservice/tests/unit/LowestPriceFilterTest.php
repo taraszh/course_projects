@@ -25,8 +25,6 @@ class LowestPriceFilterTest extends ServiceTestCase
 
         $filteredEnquiry = $filter->apply($enquiry, ...$promotions);
 
-
-
         self::assertSame(100, $filteredEnquiry->getPrice());
         self::assertSame(50, $filteredEnquiry->getDiscountedPrice());
         self::assertSame('Black Friday half price sale', $filteredEnquiry->getPromotionName());
