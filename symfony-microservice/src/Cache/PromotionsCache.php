@@ -15,11 +15,18 @@ class PromotionsCache
 
     public function findValidForProduct(Product $product, \DateTimeInterface $requestDate)
     {
-        $key = sprintf('find-valid-for-product-%d', $product->getId());
+        $key = sprintf('valid-for-product-%d', $product->getId());
 
         return $this->cache->get(
             $key,
-            fn(ItemInterface $item) => $this->promotionRepository->findValidForProduct($product, $requestDate)
+            function(ItemInterface $item) use ($product, $requestDate) {
+
+                $item->expiresAfter(5);
+
+//                var_dump('miss');
+
+                return $this->promotionRepository->findValidForProduct($product, $requestDate);
+            }
         );
     }
 }
