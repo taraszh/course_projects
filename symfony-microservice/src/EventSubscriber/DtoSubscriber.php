@@ -3,7 +3,9 @@
 namespace App\EventSubscriber;
 
 use App\Event\AfterDtoCreatedEvent;
+use App\Service\ServiceException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Exception\ValidationFailedException;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -29,8 +31,8 @@ class DtoSubscriber implements EventSubscriberInterface
 
         $errors = $this->validator->validate($dto);
 
-        if (count($errors)) {
-            throw new ValidationFailedException('Validation failed.', $errors);
+        if ($errors->count()) {
+            throw new ServiceException(Response::HTTP_UNPROCESSABLE_ENTITY, 'Validation failed.');
         }
 
     }
