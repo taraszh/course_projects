@@ -3,10 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Service\ServiceException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)
@@ -43,6 +45,18 @@ class ProductRepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+    }
+
+
+    public function findOrFail(int $id): Product
+    {
+        $product = $this->find($id);
+
+        if (!$product) {
+            throw new ServiceException(Response::HTTP_NOT_FOUND, 'Product Not Found.');
+        }
+
+        return $product;
     }
 
     // /**
