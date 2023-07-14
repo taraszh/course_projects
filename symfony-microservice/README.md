@@ -2,7 +2,14 @@ Microservice with Symfony 6.
 
 Ecommerce promotions engine that looking for best discount for a product.
 
+
+
+cd symfony-microservice
+
 composer install
+
+symfony server:start -d
+docker-compose up -d
 
 symfony console make:docker:database
 

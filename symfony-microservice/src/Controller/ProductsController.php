@@ -22,7 +22,11 @@ class ProductsController extends AbstractController
     ) {
     }
 
-    #[Route('/products/{id}/lowest-price', name: 'lowest-price', methods: 'POST')]
+    #[Route(
+        '/products/{id}/lowest-price',
+        name: 'lowest-price',
+        methods: 'POST'
+    )]
     public function lowestPrice(
         Request $request,
         int $id,

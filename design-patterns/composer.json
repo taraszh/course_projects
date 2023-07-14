@@ -1,0 +1,19 @@
+{
+    "require": {
+        "phpunit/phpunit": "^10.2"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App2\\": "scr",
+            "App2\\Test\\": "test"
+
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "App2\\Test\\": "test"
+        }
+    }
+}
