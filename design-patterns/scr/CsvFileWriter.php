@@ -2,7 +2,7 @@
 
 namespace App2;
 
-class CsvFileWriter extends FileWritter
+class CsvFileWriter extends FileWriter
 {
     public function writeToFile($data): bool
     {

@@ -5,7 +5,7 @@ namespace App2;
 class RandomProcessor
 {
 
-    public function __construct(protected FileWritter $fileWritter)
+    public function __construct(protected FileWriter $fileWritter)
     {
     }
 

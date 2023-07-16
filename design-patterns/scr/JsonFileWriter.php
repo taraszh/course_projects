@@ -2,7 +2,7 @@
 
 namespace App2;
 
-class JsonFileWriter extends FileWritter
+class JsonFileWriter extends FileWriter
 {
     public function writeToFile($data): bool
     {

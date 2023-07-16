@@ -2,7 +2,7 @@
 
 namespace App2;
 
-abstract class FileWritter
+abstract class FileWriter
 {
     abstract public function writeToFile($data): bool;
 
