@@ -11,7 +11,7 @@ class NewFileWriterAdapter extends FileWriter
     {
     }
 
-    public function writeToFile($data): bool
+    public function writeToFile(array $data): bool
     {
         $this->fileWriter->write($data);
 
