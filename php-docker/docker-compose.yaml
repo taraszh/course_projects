@@ -2,6 +2,7 @@ services:
   web:
     build:
       dockerfile: ./nginx/Dockerfile
+      target: app
     ports:
       - "81:80"
     volumes:
