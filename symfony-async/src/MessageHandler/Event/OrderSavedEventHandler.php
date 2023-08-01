@@ -4,6 +4,7 @@ namespace App\MessageHandler\Event;
 
 use App\Message\Event\OrderSavedEvent;
 use App\Message\PurchaseConfirmationNotification;
+use http\Exception\RuntimeException;
 use Mpdf\Mpdf;
 use Mpdf\Output\Destination;
 use Symfony\Component\Mailer\MailerInterface;
@@ -18,6 +19,8 @@ class OrderSavedEventHandler implements MessageHandlerInterface
 
     public function __invoke(OrderSavedEvent $event)
     {
+        throw new \RuntimeException('ORDER COULD NOT BE FOUND.');
+
         $orderId = $event->getOrderId();
 
         $mdpf = new Mpdf();
