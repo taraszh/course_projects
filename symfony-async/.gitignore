@@ -177,7 +177,7 @@ fabric.properties
 **/Entity/*~
 
 # Embedded web-server pid file
-/.web-server-pid
+/.web-server-pidw
 
 ### Symfony Patch ###
 /web/css/
@@ -186,3 +186,7 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/symfony,phpstorm
 
 .idea/
+
+mysqldata
+
+mysql
