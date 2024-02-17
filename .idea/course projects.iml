@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/symfony-microservice/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/symfony-microservice/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/symfony-microservice/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/design-patterns/scr" isTestSource="false" packagePrefix="App2\" />
       <sourceFolder url="file://$MODULE_DIR$/design-patterns/test" isTestSource="false" packagePrefix="App2\Test\" />
@@ -10,9 +11,13 @@
       <sourceFolder url="file://$MODULE_DIR$/php-docker/app/src" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/php-docker/app/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/php-right-way/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/php-right-way/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/php-right-way/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/symfony-async/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/symfony-async/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/symfony-async/tests" isTestSource="true" packagePrefix="App\Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/book-store/application/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/book-store/application/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/symfony-microservice/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/symfony-microservice/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/symfony-microservice/vendor/doctrine/collections" />

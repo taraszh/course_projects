@@ -6,8 +6,8 @@
         <option value="$PROJECT_DIR$/design-patterns/tests" />
         <option value="$PROJECT_DIR$/php-docker/app/tests" />
         <option value="$PROJECT_DIR$/php-right-way/tests" />
-        <option value="$PROJECT_DIR$/symfony-microservice/tests" />
         <option value="$PROJECT_DIR$/symfony-async/tests" />
+        <option value="$PROJECT_DIR$/symfony-microservice/tests" />
       </list>
     </option>
   </component>
