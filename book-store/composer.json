@@ -7,9 +7,12 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2.11",
         "doctrine/doctrine-migrations-bundle": "^3.3",
+        "doctrine/instantiator": "^2.0",
         "doctrine/orm": "^3.0",
+        "nelmio/api-doc-bundle": "^4.20",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.25",
         "symfony/console": "7.0.*",
@@ -56,6 +59,8 @@
     "scripts": {
         "docker-up": "docker compose up -d",
         "docker-down": "docker compose down",
+        "docker-fixtures-load": "docker compose exec app bin/console doctrine:fixtures:load",
+        "docker-test": " docker compose exec app bin/phpunit",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
@@ -78,6 +83,12 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.5",
-        "symfony/maker-bundle": "^1.54"
+        "friendsofphp/php-cs-fixer": "^3.49",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "7.0.*",
+        "symfony/css-selector": "7.0.*",
+        "symfony/maker-bundle": "^1.54",
+        "symfony/phpunit-bridge": "^7.0"
     }
 }

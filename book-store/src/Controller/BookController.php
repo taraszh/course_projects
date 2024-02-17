@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Attribute\Route;
 
 class BookController extends AbstractController
@@ -14,11 +12,9 @@ class BookController extends AbstractController
     {
     }
 
-    #[Route(path: '/api/book', name: 'book_post', methods: ['POST'])]
+    #[Route(path: '/api/new-book', name: 'book_post', methods: ['POST'])]
     public function createBook(): Response
     {
         return $this->json([]);
     }
-
-
 }

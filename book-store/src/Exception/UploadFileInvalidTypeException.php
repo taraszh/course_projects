@@ -2,9 +2,7 @@
 
 namespace App\Exception;
 
-use RuntimeException;
-
-class UploadFileInvalidTypeException extends RuntimeException
+class UploadFileInvalidTypeException extends \RuntimeException
 {
     public function __construct()
     {

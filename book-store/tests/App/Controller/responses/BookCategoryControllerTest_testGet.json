@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "id": 4,
+      "title": "Pride and Prejudice",
+      "slug": "pride_and_prejudice"
+    },
+    {
+      "id": 3,
+      "title": "Robur the conquer",
+      "slug": "robur_the_conquer"
+    }
+  ]
+}

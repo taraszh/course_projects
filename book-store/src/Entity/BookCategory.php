@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\BookRepository;
+use App\Repository\BookCategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: BookRepository::class)]
-class Book
+#[ORM\Entity(repositoryClass: BookCategoryRepository::class)]
+class BookCategory
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -15,6 +15,21 @@ class Book
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $title;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $slug;
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -31,5 +46,10 @@ class Book
         $this->title = $title;
 
         return $this;
+    }
+
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
     }
 }

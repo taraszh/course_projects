@@ -9,6 +9,9 @@ use Symfony\Component\Validator\Validation;
 
 class FileValidator
 {
+    /**
+     * @return  array<int, string>
+     */
     public function validateBookCover(Request $request): array
     {
         $file = $request->files->get('cover');
