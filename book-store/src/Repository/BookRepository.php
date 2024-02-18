@@ -29,7 +29,7 @@ class BookRepository extends ServiceEntityRepository
         $query = $this->getEntityManager()->createQuery("
             SELECT b
             FROM App\Entity\Book b
-            WHERE :categoryId MEMBER OF b.categories
+            WHERE :categoryId MEMBER OF b.category
         ");
         $query->setParameter('categoryId', $categoryId);
 

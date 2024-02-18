@@ -28,7 +28,7 @@ class Book
     private array $authors;
 
     #[ORM\Column(type: 'date')]
-    private \DateTimeInterface $date;
+    private \DateTimeInterface $publicationDate;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $meap;
@@ -62,14 +62,14 @@ class Book
         $this->authors = $authors;
     }
 
-    public function getDate(): \DateTimeInterface
+    public function getPublicationDate(): \DateTimeInterface
     {
-        return $this->date;
+        return $this->publicationDate;
     }
 
-    public function setDate(\DateTimeInterface $date): void
+    public function setPublicationDate(\DateTimeInterface $publicationDate): void
     {
-        $this->date = $date;
+        $this->publicationDate = $publicationDate;
     }
 
     public function isMeap(): bool

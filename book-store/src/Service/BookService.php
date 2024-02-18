@@ -46,7 +46,7 @@ class BookService
         $item->setSlug($book->getSlug());
         $item->setImage($book->getImage());
         $item->setMeap($book->isMeap());
-        $item->setPublicationDate($book->getDate()->getTimestamp());
+        $item->setPublicationDate($book->getPublicationDate()->getTimestamp());
 
         return $item;
     }
