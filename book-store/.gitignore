@@ -33,6 +33,8 @@
 .idea/**/dictionaries
 .idea/**/shelf
 /.idea/
+.idea/
+.idea
 
 # AWS User-specific
 .idea/**/aws.xml

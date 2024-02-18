@@ -4,19 +4,17 @@ namespace App\Model;
 
 class BookListItem
 {
+    private int $id;
+    private string $title;
+    private string $slug;
+    private string $image;
+
     /**
-     * @param string[] $authors
+     * @var string[]
      */
-    public function __construct(
-        private int    $id,
-        private string $title,
-        private string $slug,
-        private string $image,
-        private array $authors,
-        private bool $meap,
-        private int $publicationDate,
-    ) {
-    }
+    private array $authors;
+    private bool $meap;
+    private int $publicationDate;
 
     public function getId(): int
     {

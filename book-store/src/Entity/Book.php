@@ -24,7 +24,7 @@ class Book
     #[ORM\Column(type: 'string', length: 255)]
     private string $image;
 
-    #[ORM\Column(type: 'array')]
+    #[ORM\Column(type: 'simple_array')]
     private array $authors;
 
     #[ORM\Column(type: 'date')]
