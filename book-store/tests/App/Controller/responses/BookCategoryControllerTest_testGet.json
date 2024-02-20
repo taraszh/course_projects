@@ -1,14 +1,1 @@
-{
-  "items": [
-    {
-      "id": 4,
-      "title": "Pride and Prejudice",
-      "slug": "pride_and_prejudice"
-    },
-    {
-      "id": 3,
-      "title": "Robur the conquer",
-      "slug": "robur_the_conquer"
-    }
-  ]
-}
+{"items":[{"id":12,"title":"Adventures","slug":"adventures"},{"id":11,"title":"Classics","slug":"classics"},{"id":14,"title":"Fantasy","slug":"fantasy"},{"id":13,"title":"Non-fiction","slug":"non-fiction"}]}

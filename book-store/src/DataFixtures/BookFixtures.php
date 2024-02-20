@@ -27,12 +27,6 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
         $book->setPublicationDate(new \DateTime('1886-01-01'));
         $manager->persist($book);
 
-//        $bookCategory = new Book();
-//        $bookCategory->setTitle('Pride and Prejudice');
-//        $bookCategory->setSlug('pride_and_prejudice');
-//
-//        $manager->persist($bookCategory);
-
         $manager->flush();
     }
 
