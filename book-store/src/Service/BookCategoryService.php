@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\Criteria;
 class BookCategoryService
 {
     public function __construct(
-        private BookCategoryRepository $bookCategoryRepository
+        private readonly BookCategoryRepository $bookCategoryRepository
     ) {
     }
 

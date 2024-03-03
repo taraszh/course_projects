@@ -1,5 +1,7 @@
 parameters:
     uploadDir: '%kernel.project_dir%/public/upload'
+    exceptions:
+        App\Exception\BookCategoryNotFoundException: { code: 404, hidden: false, loggable: false }
 
 services:
     _defaults:
@@ -13,8 +15,12 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Service\ExceptionHandler\ExceptionMappingResolver:
+        arguments: [ '%exceptions%' ]
+
+    App\Listener\ApiExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, priority: 10 }
+
     App\Service\UploadService:
         arguments: [ '@filesystem', '%uploadDir%' ]
-
-    # todo ApiExceptionListener
-    # todo ValidationExceptionListener
