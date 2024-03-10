@@ -18,6 +18,7 @@ class ApiExceptionListener
         private ExceptionMappingResolver $exceptionMappingResolver,
         private LoggerInterface          $logger,
         private SerializerInterface      $serializer,
+        private bool                     $isDebug
     ) {
     }
 
@@ -36,15 +37,23 @@ class ApiExceptionListener
             $this->logger->error(
                 $throwable->getMessage(),
                 [
-                    'trace' => $throwable->getTrace(),
+                    'trace' => $throwable->getTraceAsString(),
                     'previous' => $throwable->getPrevious()?->getMessage() ?? '',
                 ]
             );
         }
-        $message = $mapping->isHidden() ? Response::$statusTexts[$mapping->getCode()] : $throwable->getMessage();
-        $data = $this->serializer->serialize(new ErrorResponse($message), JsonEncoder::FORMAT);
-        $response = new JsonResponse($data, $mapping->getCode(), json: true);
+        $code          = $mapping->getCode();
+        $message       = $mapping->isHidden() ? Response::$statusTexts[$code] : $throwable->getMessage();
+        $details       = $this->isDebug ? [$throwable->getTrace()] : null;
+        $responseModel = new ErrorResponse($message, $details);
+        $data          = $this->serializer->serialize($responseModel, JsonEncoder::FORMAT);
 
-        $event->setResponse($response);
+        $event->setResponse(
+            new JsonResponse(
+                data: $data,
+                status:  $code,
+                json: true
+            )
+        );
     }
 }

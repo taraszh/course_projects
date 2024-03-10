@@ -16,7 +16,7 @@ use OpenApi\Attributes as OA;
 
 class BookController extends AbstractController
 {
-    public function __construct(private readonly BookService $bookService)
+    public function __construct(private readonly BookService $bookService,)
     {
     }
 
