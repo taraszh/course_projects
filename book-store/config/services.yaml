@@ -2,6 +2,8 @@ parameters:
     uploadDir: '%kernel.project_dir%/public/upload'
     exceptions:
         App\Exception\BookCategoryNotFoundException: { code: 404, hidden: false, loggable: false }
+        App\Exception\SubscriberExistsException: { code: 409, hidden: false, loggable: false }
+        App\Exception\RequestBodyConvertException: { code: 400, hidden: false, loggable: false }
 
 services:
     _defaults:
@@ -23,6 +25,10 @@ services:
     App\Listener\ApiExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception, priority: 10 }
+
+    App\Listener\ValidationExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, priority: 16 }
 
     App\Service\UploadService:
         arguments: [ '@filesystem', '%uploadDir%' ]

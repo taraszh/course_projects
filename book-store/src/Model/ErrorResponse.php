@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use OpenApi\Attributes\Property;
+
 class ErrorResponse
 {
     public function __construct(
@@ -15,6 +17,7 @@ class ErrorResponse
         return $this->message;
     }
 
+    #[Property(type:'object')]
     public function getDetails(): ?array
     {
         return $this->details;

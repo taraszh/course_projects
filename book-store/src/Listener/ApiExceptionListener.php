@@ -42,6 +42,7 @@ class ApiExceptionListener
                 ]
             );
         }
+
         $code          = $mapping->getCode();
         $message       = $mapping->isHidden() ? Response::$statusTexts[$code] : $throwable->getMessage();
         $details       = $this->isDebug ? [$throwable->getTrace()] : null;
